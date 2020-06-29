@@ -2,12 +2,8 @@ import React from 'react'
 
 function AddTodo(props) {
     return (
-        <div className="todo-item">
+        <div className="add-todo no-focus-outline">
             <form onSubmit={props.handleSubmit}>
-                <input 
-                    type="checkbox" 
-                    name="isCompleted"
-                />
                 <input 
                     type="text" 
                     placeholder="Add new task" 
@@ -15,7 +11,7 @@ function AddTodo(props) {
                     value={props.value} 
                     onChange={props.handleNewTodo}
                 />
-                <button>></button>
+                <button>+</button>
             </form>
         </div>
     )

@@ -1,0 +1,57 @@
+@import '_light';
+
+
+div.light-theme {
+  background: $page-bg-light;
+  .header {
+    color: $header-color-light;
+  }
+  
+  .slider {
+    background-color: $add-bg-light;
+  }
+  
+  input:checked + .slider {
+    background-color: $add-bg-light;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px $add-bg-light;
+  }
+  
+  .add-todo{
+    background: $add-bg-light;
+      input[type=text] {
+        background: $add-bg-light;
+        color: $text-light;
+      }
+      button{
+        background: $add-btn-light;
+    }
+  }
+  
+  .completed-header,.todo-header{
+    color: $header-color-light;
+    border-top: 1px solid $todo-bg-light;
+  }
+  
+  .todo-item {
+    background: $todo-bg-light;
+    border: 1px solid $shadow-light;
+    box-shadow: 3px 3px 3px $shadow-light;
+    input[type=text] {
+      color: $text-light;
+    }
+    button{
+      background: $delete-btn-light;
+    }
+  }
+  
+  .completed{
+    background: $completed-bg-light;
+    > input[type=text] {
+      color: $header-color-light;
+    }
+  }
+  
+}

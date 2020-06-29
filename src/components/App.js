@@ -1,6 +1,8 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 import AddTodo from './AddTodo';
+import Header from './Header'
+import '../css/dark-theme.scss';
 
 class App extends React.Component {
   	constructor() {
@@ -8,7 +10,8 @@ class App extends React.Component {
 			this.state = {
 			todos: [],
 			id: 0,
-			newTodo: ""
+         newTodo: "",
+         isDarkTheme: true
 		};
   	}
 
@@ -67,14 +70,12 @@ class App extends React.Component {
       e.preventDefault();
       const nextId = this.state.id + 1
       const text = e.target.newTodo.value
-      const completed = e.target.isCompleted.checked
       const newTodo = {
          id: nextId,
          text: text,
-         completed: completed
+         completed: false
       }
       const newTodosList = this.state.todos.concat(newTodo)
-
       this.setState({
          todos: newTodosList,
          id: nextId,
@@ -82,32 +83,59 @@ class App extends React.Component {
       })
    }
 
+   toggleTheme = () => {
+      this.setState({
+         isDarkTheme: !this.state.isDarkTheme
+      })
+   }
+
    render() {
-      const todoItems = this.state.todos.map(item => 
-         <TodoItem 
-            key={item.id} 
-            todo={item} 
-            handleChange={this.handleChange} 
-            handleDelete={this.handleDelete}
-            handleEdit={this.handleEdit}
-         />)
+      const todoItems = this.state.todos.map(item => {
+         let todoItem
+         if (!item.completed) {
+            todoItem = <TodoItem 
+                           key={item.id} 
+                           todo={item} 
+                           handleChange={this.handleChange} 
+                           handleDelete={this.handleDelete}
+                           handleEdit={this.handleEdit}
+                        />
+         }
+         return todoItem
+      })
+      const completedItems = this.state.todos.map(item => {
+         let todoItem
+         if (item.completed) {
+            todoItem = <TodoItem 
+                           key={item.id} 
+                           todo={item} 
+                           handleChange={this.handleChange} 
+                           handleDelete={this.handleDelete}
+                           handleEdit={this.handleEdit}
+                        />
+         }
+         return todoItem
+      })
 
       return (
-         <div className="page">
-            <div className="header">
-               <h1>Todo List App built with Reactjs</h1>
-            </div>
-            <div className="todo-list">
-               {todoItems}
-            </div>
+         <div className={this.state.isDarkTheme ? "page" : "page light-theme"}>
+            <Header toggleTheme={this.toggleTheme}/>
             <AddTodo 
                handleSubmit={this.handleSubmit}
                value={this.state.newTodo}
                handleNewTodo={this.handleNewTodo}
             />
+            <h2 className="todo-header">TO DO</h2>
+            <div className="todo-list">
+               {todoItems}
+            </div>
+            <h2 className="completed-header">COMPLETED</h2>
+            <div className="completed-list">
+               {completedItems}
+            </div>
          </div>
       )
    }
-   }
+}
 
 export default App;
