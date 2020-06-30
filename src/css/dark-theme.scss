@@ -79,7 +79,7 @@ button, input{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $add-bg;
+  background-color: $add-bg-light;
   -webkit-transition: .4s;
   transition: .4s;
   
@@ -90,7 +90,7 @@ button, input{
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: $todo-bg;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -118,8 +118,6 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
-
 
 .add-todo{
   grid-column-start: col2;
@@ -161,7 +159,7 @@ input:checked + .slider:before {
   grid-column-end: col4;
   color: $header-color;
   font-size: 0.9rem;
-  padding: 1.2rem 2rem;
+  padding: 1.2rem 1.5rem;
   margin: 1.2rem 0 1rem;
   border-top: 1px solid $todo-bg;
 }
@@ -230,4 +228,7 @@ input:checked + .slider:before {
   grid-column-end: col3;
   grid-row-start: row6;
   grid-row-end: row7;
+  >div.completed {
+    border:none;
+  }
 }

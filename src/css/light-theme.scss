@@ -8,15 +8,18 @@ div.light-theme {
   }
   
   .slider {
-    background-color: $add-bg-light;
+    background-color: $todo-bg;
+    &:before {
+      background-color: $add-bg-light
+    }
   }
   
   input:checked + .slider {
-    background-color: $add-bg-light;
+    background-color: $todo-bg;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px $add-bg-light;
+    box-shadow: 0 0 1px $todo-bg;
   }
   
   .add-todo{
@@ -32,13 +35,13 @@ div.light-theme {
   
   .completed-header,.todo-header{
     color: $header-color-light;
-    border-top: 1px solid $todo-bg-light;
+    border-top: 1px solid $completed-bg-light;
   }
   
   .todo-item {
     background: $todo-bg-light;
-    border: 1px solid $shadow-light;
-    box-shadow: 3px 3px 3px $shadow-light;
+    border: 1px solid $todo-border;
+    box-shadow: 0 3px 3px $shadow-light;
     input[type=text] {
       color: $text-light;
     }
@@ -50,7 +53,7 @@ div.light-theme {
   .completed{
     background: $completed-bg-light;
     > input[type=text] {
-      color: $header-color-light;
+      color: $completed-text-light;
     }
   }
   
