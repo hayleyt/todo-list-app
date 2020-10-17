@@ -9,13 +9,13 @@ class App extends React.Component {
 		super();
 			this.state = {
 			todos: [
-            {completed: true, id: 1, text: "Add a new task"},
-            {completed: false, id: 2, text: "Edit a task by tapping on the text"},
-            {completed: true, id: 3, text: "Mark your task completed"},
-            {completed: false, id: 4, text: "Delete a task by tapping X"},
-            {completed: false, id: 5, text: "This app won't save your list if you refresh"},
+            {completed: true, id: 1, text: "Toggle for light and dark mode"},
+            {completed: true, id: 2, text: "Add a new task"},
+            {completed: false, id: 3, text: "Edit a task by tapping on the text"},
+            {completed: true, id: 4, text: "Mark your task completed"},
+            {completed: false, id: 5, text: "Delete a task by tapping X"},
          ],
-			id: 0,
+			id: 5,
          newTodo: "",
          isDarkTheme: true
 		};
