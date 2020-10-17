@@ -8,7 +8,13 @@ class App extends React.Component {
   	constructor() {
 		super();
 			this.state = {
-			todos: [],
+			todos: [
+            {completed: true, id: 1, text: "Add a new task"},
+            {completed: false, id: 2, text: "Edit a task by tapping on the text"},
+            {completed: true, id: 3, text: "Mark your task completed"},
+            {completed: false, id: 4, text: "Delete a task by tapping X"},
+            {completed: false, id: 5, text: "This app won't save your list if you refresh"},
+         ],
 			id: 0,
          newTodo: "",
          isDarkTheme: true
